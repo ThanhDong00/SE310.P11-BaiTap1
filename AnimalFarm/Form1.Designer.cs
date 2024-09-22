@@ -70,6 +70,7 @@
             btnLoad.TabIndex = 3;
             btnLoad.Text = "Load ";
             btnLoad.UseVisualStyleBackColor = true;
+            btnLoad.Visible = false;
             btnLoad.Click += btnLoad_Click;
             // 
             // getMilk
@@ -120,6 +121,7 @@
             Controls.Add(splitContainer1);
             Name = "Form1";
             Text = "Form1";
+            Load += Form1_Load;
             splitContainer1.Panel1.ResumeLayout(false);
             splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();

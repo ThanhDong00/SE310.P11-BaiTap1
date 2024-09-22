@@ -22,3 +22,5 @@ D:\1. Hoc Tap\1. UIT\year4 (2024-2025)\term7\SE310.P11 (Công nghệ .NET)\theor
 D:\1. Hoc Tap\1. UIT\year4 (2024-2025)\term7\SE310.P11 (Công nghệ .NET)\theory\06. Practice\AnimalFarm\AnimalFarm\obj\Debug\net8.0-windows\AnimalFarm.pdb
 D:\1. Hoc Tap\1. UIT\year4 (2024-2025)\term7\SE310.P11 (Công nghệ .NET)\theory\06. Practice\AnimalFarm\AnimalFarm\obj\Debug\net8.0-windows\AnimalFarm.genruntimeconfig.cache
 D:\1. Hoc Tap\1. UIT\year4 (2024-2025)\term7\SE310.P11 (Công nghệ .NET)\theory\06. Practice\AnimalFarm\AnimalFarm\obj\Debug\net8.0-windows\ref\AnimalFarm.dll
+D:\1. Hoc Tap\1. UIT\year4 (2024-2025)\term7\SE310.P11 (Công nghệ .NET)\theory\06. Practice\AnimalFarm\AnimalFarm\obj\Debug\net8.0-windows\AnimalFarm.sourcelink.json
+D:\1. Hoc Tap\1. UIT\year4 (2024-2025)\term7\SE310.P11 (Công nghệ .NET)\theory\06. Practice\AnimalFarm\AnimalFarm\obj\Debug\net8.0-windows\AnimalFarm.Form2.resources

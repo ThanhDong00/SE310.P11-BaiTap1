@@ -12,6 +12,49 @@ namespace AnimalFarm
         public Form1()
         {
             InitializeComponent();
+            this.FormClosing += new FormClosingEventHandler(Form1_FormClosing); // Đăng ký sự kiện FormClosing
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            // Tự động gọi nút Load khi form mở
+            btnLoad_Click(sender, e);
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            // Hiển thị hộp thoại xác nhận xóa dữ liệu
+            DialogResult result = MessageBox.Show("Bạn có muốn xóa dữ liệu trong cơ sở dữ liệu không?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            // Nếu người dùng chọn Yes, thực hiện xóa dữ liệu
+            if (result == DialogResult.Yes)
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    try
+                    {
+                        conn.Open();
+                        string query = "DELETE FROM Animals"; // Câu truy vấn xóa dữ liệu
+
+                        SqlCommand cmd = new SqlCommand(query, conn);
+
+                        // Thực thi lệnh SQL
+                        cmd.ExecuteNonQuery();
+
+                        // Thông báo xóa thành công
+                        MessageBox.Show("Dữ liệu đã được xóa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Có lỗi xảy ra khi xóa dữ liệu: " + ex.Message);
+                    }
+                }
+            }
+            else
+            {
+                // Nếu người dùng chọn No, không xóa dữ liệu và tiếp tục đóng form
+                e.Cancel = false;
+            }
         }
 
         private void btnLoad_Click(object sender, EventArgs e)
@@ -29,6 +72,25 @@ namespace AnimalFarm
                     da.Fill(dt);
 
                     dataGridView1.DataSource = dt;
+
+                    //int count = dataGridView1.Rows.Count;
+
+                    //MessageBox.Show("count " + count);
+
+                    // Kiểm tra nếu không có dữ liệu
+
+                    if (dt.Rows.Count == 0)
+                    {
+                        MessageBox.Show("Không có dữ liệu trong database. Vui lòng nhập dữ liệu!");
+                        Form2 form2 = new Form2();
+                        form2.ShowDialog();
+
+                        btnLoad_Click(sender, e);
+                    }
+                    else
+                    {
+                        dataGridView1.DataSource = dt;
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -104,8 +166,6 @@ namespace AnimalFarm
                     int additionalGoat = random.Next(1, 4);
                     totalGoat += additionalGoat;
                 }
-
-                //MessageBox.Show($"cow: {totalCow}, sheep:, {totalSheep}, goat: {totalGoat}");
 
                 //Ghi vao database
                 using (SqlConnection conn = new SqlConnection(connectionString))
